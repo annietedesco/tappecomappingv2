@@ -248,32 +248,27 @@
         /* Color Key Styling */
         .color-key-container {
             position: absolute;
-            top: 20px; /* Adjust as needed */
-            left: 20px; /* Adjust as needed */
+            top: 10px; /* Adjusted to be higher */
+            left: 10px; /* Adjusted to be closer to the corner */
             background-color: var(--snyk-card-background);
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            padding: 15px;
+            padding: 10px; /* Reduced padding */
             z-index: 20; /* Ensure it's above other elements */
-            font-size: 0.85rem;
+            font-size: 0.75rem; /* Reduced font size */
             color: var(--snyk-text-dark);
         }
-        .color-key-title {
-            font-weight: 700;
-            margin-bottom: 8px;
-            text-align: center;
-            color: var(--snyk-dark-blue);
-        }
+        /* Removed .color-key-title style as the element is removed */
         .color-key-item {
             display: flex;
             align-items: center;
-            margin-bottom: 5px;
+            margin-bottom: 3px; /* Reduced margin */
         }
         .color-box {
-            width: 18px;
-            height: 18px;
+            width: 15px; /* Reduced size */
+            height: 15px; /* Reduced size */
             border-radius: 4px;
-            margin-right: 8px;
+            margin-right: 6px; /* Reduced margin */
             border: 1px solid rgba(0,0,0,0.1); /* Subtle border for visibility */
         }
     </style>
@@ -284,7 +279,7 @@
     
     <!-- Color Key Container -->
     <div class="color-key-container">
-        <div class="color-key-title">Color Key</div>
+        <!-- Removed the color-key-title div -->
         <div class="color-key-item">
             <div class="color-box" style="background-color: var(--snyk-purple);"></div>
             <span>Legacy TAPP</span>
@@ -584,3 +579,4 @@
 
 </body>
 </html>
+
