@@ -8,21 +8,19 @@
     <style>
         /* Original Snyk Light Mode Colors */
         :root {
-            --snyk-purple: #4C3C8C;
-            --snyk-blue: #0070CC;
-            --snyk-dark-blue: #1a202c;
-            --snyk-light-blue: #E0F2FE;
-            --snyk-text-dark: #333;
-            --snyk-text-medium: #4a5568;
-            --snyk-text-light: #6b7280;
-            --snyk-background: #f0f2f5;
-            --snyk-card-background: #ffffff;
-            --snyk-dropdown-bg: #f8fafc;
-            --snyk-border: #e2e8f0;
-            --snyk-teal: #20c997; /* Teal color for coding assistants */
-            --snyk-dark-teal: #1aa882; /* Darker teal for hover state */
-            --snyk-pink: #FF69B4; /* New pink color for specified buttons */
-            --snyk-dark-pink: #E05C9E; /* Darker pink for hover state */
+            --snyk-purple: #4C3C8C; /* Updated to a more prominent Snyk purple */
+            --snyk-blue: #0070CC;  /* Original Snyk blue */
+            --snyk-dark-blue: #1a202c; /* Dark gray for header text */
+            --snyk-light-blue: #E0F2FE; /* Light blue for buttons - will be replaced for button bg */
+            --snyk-text-dark: #333; /* Dark gray for stage titles */
+            --snyk-text-medium: #4a5568; /* Darker gray for questions */
+            --snyk-text-light: #6b7280; /* Lighter gray for pain points */
+            --snyk-background: #f0f2f5; /* Light background */
+            --snyk-card-background: #ffffff; /* White card background */
+            --snyk-dropdown-bg: #f8fafc; /* Very light background for dropdown */
+            --snyk-border: #e2e8f0; /* Light border */
+            --snyk-teal: #00B2B2; /* New Snyk teal color */
+            --snyk-pink: #FF69B4; /* New Snyk pink color */
         }
 
         body {
@@ -31,16 +29,15 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            justify-content: center;
             align-items: center;
             padding: 10px;
-            color: var(--snyk-text-dark);
-            position: relative; /* Needed for absolute positioning of the color key */
+            color: var(--snyk-text-dark); /* Default text color for body */
         }
-        
         .sdlc-stage-card {
             background-color: var(--snyk-card-background);
             border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Original shadow */
             padding: 16px;
             margin: 10px;
             min-width: 300px;
@@ -50,7 +47,6 @@
             justify-content: flex-start;
             transition: transform 0.2s ease-in-out;
             flex-shrink: 0;
-            scroll-snap-align: start;
         }
         .sdlc-stage-card:hover {
             transform: translateY(-5px);
@@ -58,7 +54,7 @@
         .stage-title {
             font-size: 1.4rem;
             font-weight: 700;
-            color: var(--snyk-text-dark);
+            color: var(--snyk-text-dark); /* Original dark text for titles */
             margin-bottom: 6px;
             text-align: center;
         }
@@ -82,25 +78,25 @@
             color: var(--snyk-text-light);
         }
         .customer-pain-points-list li {
-            margin-bottom: 2px;
+            margin-bottom: 2px; /* Slightly reduced space between list items */
         }
         .seller-question-container {
             margin-bottom: 12px;
             padding: 0 5px;
-            text-align: center;
+            text-align: center; /* Align content of container */
         }
         .seller-question-title {
-            font-size: 0.85rem;
-            color: var(--snyk-text-medium);
-            font-weight: 700;
-            margin-bottom: 4px;
-            display: block;
+            font-size: 0.85rem; /* Match customer pain point size */
+            color: var(--snyk-text-medium); /* Original medium gray for questions */
+            font-weight: 700; /* Bold as requested */
+            margin-bottom: 4px; /* Space between title and question text */
+            display: block; /* Ensure it takes its own line */
         }
         .seller-question-text {
-            font-size: 0.85rem;
-            color: var(--snyk-text-medium);
-            font-style: italic;
-            display: block;
+            font-size: 0.85rem; /* Match customer pain point size */
+            color: var(--snyk-text-medium); /* Original medium gray for questions */
+            font-style: italic; /* Keep italic for the question itself */
+            display: block; /* Ensure it takes its own line */
         }
         .partner-list {
             display: flex;
@@ -114,8 +110,8 @@
             width: 100%;
         }
         .partner-button {
-            background-color: var(--snyk-purple);
-            color: #FFFFFF;
+            background-color: var(--snyk-purple); /* Changed to Snyk purple */
+            color: #FFFFFF; /* White text for contrast on purple */
             padding: 5px 10px;
             border-radius: 16px;
             font-size: 0.8rem;
@@ -124,45 +120,45 @@
             border: none;
             cursor: pointer;
             transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-        }
-        /* CSS class for teal buttons */
-        .partner-button.teal-button {
-            background-color: var(--snyk-teal);
-        }
-        /* CSS class for pink buttons */
-        .partner-button.pink-button {
-            background-color: var(--snyk-pink);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); /* Slightly more prominent shadow for purple */
         }
         .partner-button:hover {
-            background-color: #663399; /* Default purple hover */
+            background-color: #663399; /* A slightly darker purple on hover */
             transform: translateY(-1px);
         }
-        .partner-button.teal-button:hover {
-            background-color: var(--snyk-dark-teal); /* Teal hover */
+        /* New style for Coding Assistant buttons */
+        .partner-button.coding-assistant {
+            background-color: var(--snyk-teal); /* Teal for coding assistants */
+        }
+        .partner-button.coding-assistant:hover {
+            background-color: #008C8C; /* Darker teal on hover */
+        }
+        /* New style for Pink buttons */
+        .partner-button.pink-button {
+            background-color: var(--snyk-pink); /* Pink for specified partners */
         }
         .partner-button.pink-button:hover {
-            background-color: var(--snyk-dark-pink); /* Pink hover */
+            background-color: #E0529D; /* Darker pink on hover */
         }
         .partner-description {
             font-size: 0.75rem;
-            color: #555;
+            color: #555; /* Original description text color */
             line-height: 1.2;
             padding-left: 10px;
         }
         .dropdown-content {
             display: none;
             padding: 6px 10px;
-            background-color: var(--snyk-dropdown-bg);
-            border-left: 3px solid #60a5fa;
+            background-color: var(--snyk-dropdown-bg); /* Original very light dropdown background */
+            border-left: 3px solid #60a5fa; /* Original blue border for emphasis */
             border-radius: 0 0 8px 8px;
             margin-top: 3px;
             font-size: 0.8rem;
-            color: var(--snyk-text-medium);
-            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.03);
+            color: var(--snyk-text-medium); /* Original medium text color for dropdown content */
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.03); /* Original inner shadow */
         }
         .dropdown-content a {
-            color: #3b82f6;
+            color: #3b82f6; /* Original blue link color */
             text-decoration: none;
             font-weight: 600;
             margin-top: 6px;
@@ -174,34 +170,49 @@
         .header-title {
             font-size: 2.2rem;
             font-weight: 800;
-            color: var(--snyk-dark-blue);
+            color: var(--snyk-dark-blue); /* Original dark gray for header */
             margin-bottom: 30px;
             text-align: center;
             line-height: 1.2;
-            background: linear-gradient(90deg, var(--snyk-purple), var(--snyk-blue));
+            background: linear-gradient(90deg, var(--snyk-purple), var(--snyk-blue)); /* Original gradient */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        /* Main content container for horizontal scrolling */
+        /* Horizontal scrolling for stages */
         .sdlc-stages-container {
             display: flex;
-            overflow-x: auto; /* Re-enabled native scrollbar */
+            overflow-x: auto;
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
             padding-bottom: 15px;
             width: 100%;
             justify-content: flex-start;
-            /* Removed scrollbar hiding styles */
-            -ms-overflow-style: auto; /* IE and Edge */
-            scrollbar-width: auto; /* Firefox */
+        }
+        .sdlc-stage-card {
+            scroll-snap-align: start;
         }
 
-        /* Removed .top-scrollbar-container and its child styles */
-        
+        /* Hide scrollbar for a cleaner look, but keep functionality */
+        .sdlc-stages-container::-webkit-scrollbar {
+            height: 6px;
+        }
+        .sdlc-stages-container::-webkit-scrollbar-track {
+            background: #e0e0e0; /* Original light track */
+            border-radius: 10px;
+        }
+        .sdlc-stages-container::-webkit-scrollbar-thumb {
+            background: #888; /* Original thumb */
+            border-radius: 10px;
+        }
+        .sdlc-stages-container::-webkit-scrollbar-thumb:hover {
+            background: #555; /* Original hover thumb */
+        }
+
         /* Adjustments for smaller screens to ensure horizontal scroll */
         @media (max-width: 1279px) {
             .sdlc-stages-container {
+                display: flex;
                 flex-wrap: nowrap;
             }
         }
@@ -209,65 +220,77 @@
         .partner-group-header {
             font-size: 1rem;
             font-weight: 700;
-            color: var(--snyk-dark-blue);
+            color: var(--snyk-dark-blue); /* Original dark text for group headers */
             margin-top: 15px;
             margin-bottom: 8px;
             text-align: left;
-            border-bottom: 1px solid #E2E8F0;
+            border-bottom: 1px solid #E2E8F0; /* Original light border */
             padding-bottom: 4px;
             width: 100%;
         }
 
-        /* Color Key Styling */
+        /* Styles for the color key */
         .color-key-container {
             position: absolute;
-            top: 10px; /* Adjusted to be higher */
-            left: 10px; /* Adjusted to be closer to the corner */
+            top: 10px;
+            left: 10px;
             background-color: var(--snyk-card-background);
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            padding: 10px; /* Reduced padding */
-            z-index: 20; /* Ensure it's above other elements */
-            font-size: 0.75rem; /* Reduced font size */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            padding: 10px;
+            font-size: 0.75rem;
             color: var(--snyk-text-dark);
+            z-index: 10; /* Ensure it stays on top */
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
         }
+
         .color-key-item {
             display: flex;
             align-items: center;
-            margin-bottom: 3px; /* Reduced margin */
+            gap: 8px;
         }
+
         .color-box {
-            width: 15px; /* Reduced size */
-            height: 15px; /* Reduced size */
+            width: 15px;
+            height: 15px;
             border-radius: 4px;
-            margin-right: 6px; /* Reduced margin */
-            border: 1px solid rgba(0,0,0,0.1); /* Subtle border for visibility */
+            flex-shrink: 0;
+        }
+
+        .color-box.purple {
+            background-color: var(--snyk-purple);
+        }
+        .color-box.pink {
+            background-color: var(--snyk-pink);
+        }
+        .color-box.teal {
+            background-color: var(--snyk-teal);
         }
     </style>
 </head>
 <body class="bg-gray-100 p-8 flex flex-col items-center">
 
-    <h1 class="header-title">Snyk's TAPP Ecosystem - SDLC Mapping</h1>
-    
-    <!-- Color Key Container -->
     <div class="color-key-container">
         <div class="color-key-item">
-            <div class="color-box" style="background-color: var(--snyk-purple);"></div>
+            <div class="color-box purple"></div>
             <span>Legacy TAPP</span>
         </div>
         <div class="color-key-item">
-            <div class="color-box" style="background-color: var(--snyk-pink);"></div>
+            <div class="color-box pink"></div>
             <span>Supports MCP/AI Workflows in Progress</span>
         </div>
         <div class="color-key-item">
-            <div class="color-box" style="background-color: var(--snyk-teal);"></div>
+            <div class="color-box teal"></div>
             <span>Snyk Studio (AI-First Partnerships)</span>
         </div>
     </div>
 
-    <!-- Main content container -->
+    <h1 class="header-title">Snyk's TAPP Ecosystem - SDLC Mapping</h1>
+
     <div id="sdlc-stages-container" class="sdlc-stages-container w-full">
-    </div>
+        </div>
 
     <script>
         // Data for all partners, their tiers, descriptions, links, and relevant SDLC stages
@@ -276,7 +299,7 @@
             "Atlassian Bitbucket": { description: "The Bitbucket Cloud App integration lets you connect your Snyk Organization to a Bitbucket Cloud Workspace and get all Snyk's core SCM integration features: continuously perform security scanning across all the integrated repositories, detect vulnerabilities in your Open Source components, provide automated fixes and upgrades, provides developer teams with first-party visibility for security issues directly in the Bitbucket interface.", link: "https://docs.snyk.io/scm-integrations/organization-level-integrations/bitbucket-cloud-app", stages: ["Git Repository"] },
             "Atlassian Bitbucket Pipelines": { description: "Snyk integrates with Bitbucket Pipelines, allowing customers to quickly add Snyk scanning to your pipelines to test and monitor for vulnerabilities at different points of the CI/CD workflow, based on your configurations. Results are then displayed in the Bitbucket Pipelines output view and can also be monitored on the Snyk Web UI.", link: "https://partners.snyk.io/English/solutions/solution/2388/bitbucket-pipelines", stages: ["Build (CI/CD)"] },
             "Atlassian Jira": { description: "Snyk Security in Jira Cloud helps developers identify, prioritize, and triage security vulnerabilities related to their code repositories directly from the Jira interface.", link: "https://docs.snyk.io/integrate-with-snyk/jira-and-slack-integrations/snyk-security-in-jira-cloud-integration", stages: ["Production (Monitor & Secure)"] },
-            "AWS": { description: "Amazon Web Services (AWS) offers a comprehensive suite of cloud computing services. Snyk integrates with AWS CI/CD services suchs as CodePipeline, CodeBuild, and CodeDeploy to embed security scanning for code, open-source dependencies, and container images directly into automated build and deployment processes, ensuring secure cloud-native applications.", link: "https://snyk.io/partners/aws/", stages: ["Build (CI/CD)", "Store (CR)", "Deploy/Orchestration", "Production (Monitor & Secure)"] },
+            "AWS": { description: "Amazon Web Services (AWS) offers a comprehensive suite of cloud computing services. Snyk integrates with AWS CI/CD services such as CodePipeline, CodeBuild, and CodeDeploy to embed security scanning for code, open-source dependencies, and container images directly into automated build and deployment processes, ensuring secure cloud-native applications.", link: "https://snyk.io/partners/aws/", stages: ["Build (CI/CD)", "Store (CR)", "Deploy/Orchestration", "Production (Monitor & Secure)"] },
             "Snowflake": { description: "Snowflake is a cloud-based data warehousing platform that enables data storage, processing, and analytics. Snyk Analytics for Snowflake allows AppSec and BI teams to quickly build custom dashboards and reports, leveraging Snyk insights for enhanced data-driven security posture management.", link: "https://docs.snyk.io/manage-risk/reporting/reporting-and-bi-integrations-snowflake-data-share", stages: ["Build (CI/CD)", "Production (Monitor & Secure)", "Store (CR)"] },
             "SentinelOne": { description: "SentinelOne provides AI-powered endpoint security and extended detection and response (XDR) solutions. Snyk complements SentinelOne's capabilities by focusing on application and cloud-native security, identifying vulnerabilities earlier in the development lifecycle and in runtime environments for a layered defense.", link: "https://snyk.io/partners/sentinelone/", stages: ["Production (Monitor & Secure)"] },
             "ServiceNow": { description: "ServiceNow is a platform that automates IT workflows, including change management, incident response, and release orchestration. Snyk's vulnerability findings can be automatically pushed to ServiceNow for streamlined incident management and remediation workflows, providing a unified view of open-source vulnerabilities and enhancing overall IT operations security.", link: "https://partners.snyk.io/English/solutions/solution/2380/servicenow-application-vulnerability-response", stages: ["Build (CI/CD)", "Deploy/Orchestration", "Production (Monitor & Secure)"] },
@@ -315,8 +338,8 @@
             "Windsurf": { description: "Snyk provides security analysis for codebases, which can be combined with tools like Windsurf to offer a holistic view of code health and security posture.", link: "https://docs.snyk.io/cli-ide-and-ci-cd-integrations/snyk-cli/developer-guardrails-for-agentic-workflows/quickstart-guides-for-mcp/windsurf-guide", stages: ["Code (CLI/IDE)"] },
             "Tabby": { description: "Tabby is an open-source AI coding assistant, similar to GitHub Copilot. Snyk enhances AI coding assistants like Tabby by providing immediate security vulnerability detection and remediation suggestions directly within the IDE, empowering developers to write secure code efficiently.", link: "https://snyk.io/blog/Securing-the-future-of-AI-generated-code/", stages: ["Code (CLI/IDE)"] },
             "Tabnine": { description: "Use Snyk to scan vulnerabilities with the Tabnine AI coding assistant.", link: "https://www.tabnine.com/blog/open-source-and-generative-ai/", stages: ["Code (CLI/IDE)"] },
-            "Amazon Q": { description: "Snyk integrates with Amazon Q to provide security insights directly within the development workflow.", link: "https://docs.snyk.io/integrations/agentic-integrations-snyk-mcp-server/quickstart-guides-for-mcp/amazon-q-guide", stages: ["Code (CLI/IDE)"] },
-            "Cline": { description: "Snyk integrates with Cline to provide security insights directly within the development workflow.", link: "https://docs.snyk.io/integrations/agentic-integrations-snyk-mcp-server/quickstart-guides-for-mcp/cline-guide", stages: ["Code (CLI/IDE)"] },
+            "Amazon Q": { description: "With the integration of Snyk into Amazon Q, developers have one view within their IDE, directly integrating security into the modern development process.", link: "https://docs.snyk.io/integrations/agentic-integrations-snyk-mcp-server/quickstart-guides-for-mcp/amazon-q-guide", stages: ["Code (CLI/IDE)"] },
+            "Cline": { description: "Add the Snyk MCP server to Cline to secure code generated with agentic workflows through an LLM.", link: "https://docs.snyk.io/integrations/agentic-integrations-snyk-mcp-server/quickstart-guides-for-mcp/cline-guide", stages: ["Code (CLI/IDE)"] },
             "Apira": { description: "Apira is likely a security or compliance platform. Snyk's vulnerability data can be integrated into Apira's solutions for broader risk management and compliance reporting.", link: "https://docs.snyk.io/integrations", stages: ["Production (Monitor & Secure)"] },
             "AstroCode": { description: "AstroCode likely provides code analysis or security services. Snyk's comprehensive vulnerability detection capabilities can enhance AstroCode's offerings, providing deeper security insights into codebases.", link: "https://docs.snyk.io/integrations", stages: ["Production (Monitor & Secure)"] },
             "Balbix": { description: "Balbix automates cybersecurity posture transformation and risk management. Snyk's vulnerability intelligence contributes to risk-based vulnerability management platforms like Balbix, helping organizations prioritize and remediate critical security issues effectively.", link: "https://www.balbix.com/insights/how-to-secure-your-software-supply-chain-best-practices-actionable-steps/", stages: ["Production (Monitor & Secure)"] },
@@ -355,7 +378,21 @@
                 question: "What tools are your developers currently using for coding and collaboration, and what challenges do they face with security in their IDEs?",
                 partners: [
                     "Atlassian Compass", "Backstage", "Cortex", "Mindflow", "Security Compass", "Quokka", "Mobb",
-                    { type: 'group', name: 'Coding Assistants', members: ["Amazon Q", "Cline", "Continue", "Cursor", "Google Gemini Code Assist", "Qodo", "Tabby", "Tabnine", "Windsurf"].sort() }
+                    {
+                        type: 'group',
+                        name: 'Coding Assistants',
+                        members: [
+                            "Amazon Q",
+                            "Cline",
+                            "Continue",
+                            "Cursor",
+                            "Google Gemini Code Assist",
+                            "Qodo",
+                            "Tabby",
+                            "Tabnine",
+                            "Windsurf"
+                        ].sort() // Sort the members alphabetically
+                    }
                 ]
             },
             "Git Repository": {
@@ -406,20 +443,22 @@
         // Function to dynamically generate the SDLC stages and their content
         function generateSDLCStages() {
             const container = document.getElementById('sdlc-stages-container');
-            container.innerHTML = '';
+            container.innerHTML = ''; // Clear existing content
 
             for (const stageName in sdlcStages) {
                 const stageData = sdlcStages[stageName];
                 const stageCard = document.createElement('div');
                 stageCard.className = 'sdlc-stage-card';
 
+                // Split pain points and format as list items
                 const formattedPainPoints = stageData.painPoints.split('. ').map(point => {
                     if (point.length > 0) {
                         return `<li>${point.charAt(0).toUpperCase() + point.slice(1)}</li>`;
                     }
-                    return '';
-                }).filter(Boolean).join('');
+                    return ''; // Return empty string for empty points
+                }).filter(Boolean).join(''); // Filter out empty strings and join
 
+                // Order: Stage Title, Customer Pain Points, Seller Question, Partner List
                 stageCard.innerHTML = `
                     <h2 class="stage-title">${stageName}</h2>
                     <div class="customer-pain-points-container">
@@ -440,25 +479,29 @@
             }
         }
 
-        // Function to generate partners for a specific SDLC stage with special handling for 'Coding Assistants' and pink buttons
+        // Function to generate partners for a specific SDLC stage without tiering
         function generatePartnersForStage(currentStageName, partnersInStage) {
             let partnersHtml = '';
-            const pinkButtons = ["ServiceNow", "Snowflake", "Sysdig", "Atlassian Compass", "Atlassian Bitbucket", "Atlassian Bitbucket Pipelines", "Atlassian Jira", "ServiceNow CMDB"];
 
             partnersInStage.forEach(item => {
                 if (typeof item === 'object' && item.type === 'group') {
+                    // This is a group, render its header and then its members
                     partnersHtml += `<h4 class="partner-group-header">${item.name}</h4>`;
                     item.members.forEach(partnerName => {
                         const pData = partnerData[partnerName];
+                        // Only add if partnerData exists for this partnerName
                         if (pData) {
-                            const snykLink = pData.link || `https://docs.snyk.io/integrations`;
+                            const snykLink = pData.link || `https://docs.snyk.io/integrations`; // Fallback to general integrations
                             const partnerDescription = pData.description || `Snyk integrates with ${partnerName} to enhance security across your development lifecycle.`;
-                            // Determine button class based on group name
-                            const buttonClass = item.name === 'Coding Assistants' ? 'teal-button' : '';
+
+                            let buttonClass = 'partner-button';
+                            if (item.name === 'Coding Assistants') {
+                                buttonClass += ' coding-assistant';
+                            }
 
                             partnersHtml += `
                                 <div class="partner-item">
-                                    <button class="partner-button ${buttonClass}" onclick="toggleDropdown(this)">${partnerName}</button>
+                                    <button class="${buttonClass}" onclick="toggleDropdown(this)">${partnerName}</button>
                                     <div class="dropdown-content">
                                         <p class="partner-description">${partnerDescription}</p>
                                         <a href="${snykLink}" target="_blank">Learn more about Snyk & ${partnerName}</a>
@@ -468,17 +511,37 @@
                         }
                     });
                 } else {
+                    // This is a single partner
                     const partnerName = item;
                     const pData = partnerData[partnerName];
+                    // Only add if partnerData exists for this partnerName
                     if (pData) {
-                        const snykLink = pData.link || `https://docs.snyk.io/integrations`;
+                        const snykLink = pData.link || `https://docs.snyk.io/integrations`; // Fallback to general integrations
                         const partnerDescription = pData.description || `Snyk integrates with ${partnerName} to enhance security across your development lifecycle.`;
-                        // Determine if the button should be pink or default purple
-                        const buttonClass = pinkButtons.includes(partnerName) ? 'pink-button' : '';
+
+                        let buttonClass = 'partner-button';
+
+                        // Determine if this is a coding assistant partner to apply the teal style
+                        const isCodingAssistant = sdlcStages["Code (CLI/IDE)"].partners.some(group =>
+                            typeof group === 'object' && group.type === 'group' && group.name === 'Coding Assistants' && group.members.includes(partnerName)
+                        );
+
+                        // Determine if this is one of the specified pink partners
+                        const isPinkPartner = [
+                            "ServiceNow", "Snowflake", "Sysdig",
+                            "Atlassian Compass", "Atlassian Bitbucket", "Atlassian Bitbucket Pipelines", "Atlassian Jira", "ServiceNow CMDB"
+                        ].includes(partnerName);
+
+
+                        if (isCodingAssistant) {
+                            buttonClass += ' coding-assistant';
+                        } else if (isPinkPartner) {
+                            buttonClass += ' pink-button';
+                        }
 
                         partnersHtml += `
                             <div class="partner-item">
-                                <button class="partner-button ${buttonClass}" onclick="toggleDropdown(this)">${partnerName}</button>
+                                <button class="${buttonClass}" onclick="toggleDropdown(this)">${partnerName}</button>
                                 <div class="dropdown-content">
                                     <p class="partner-description">${partnerDescription}</p>
                                     <a href="${snykLink}" target="_blank">Learn more about Snyk & ${partnerName}</a>
@@ -488,6 +551,7 @@
                     }
                 }
             });
+
             return partnersHtml;
         }
 
@@ -507,13 +571,9 @@
                 dropdown.style.display = 'block';
             }
         }
-        
-        // Call generation on window load
-        window.onload = function() {
-            generateSDLCStages();
-            // Removed syncScrollbars() as the top scrollbar is no longer needed
-        };
 
+        // Call generation on window load
+        window.onload = generateSDLCStages;
     </script>
 
 </body>
