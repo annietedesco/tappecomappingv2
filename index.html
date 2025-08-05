@@ -34,7 +34,7 @@
             align-items: center;
             padding: 10px;
             color: var(--snyk-text-dark);
-            position: relative; /* Needed for absolute positioning of the top scrollbar and key */
+            position: relative; /* Needed for absolute positioning of the color key */
         }
         
         .sdlc-stage-card {
@@ -186,45 +186,18 @@
         /* Main content container for horizontal scrolling */
         .sdlc-stages-container {
             display: flex;
-            overflow-x: auto;
+            overflow-x: auto; /* Re-enabled native scrollbar */
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
             padding-bottom: 15px;
             width: 100%;
             justify-content: flex-start;
+            /* Removed scrollbar hiding styles */
+            -ms-overflow-style: auto; /* IE and Edge */
+            scrollbar-width: auto; /* Firefox */
         }
 
-        /* Top scrollbar container */
-        .top-scrollbar-container {
-            /* Positioned just below the header */
-            position: absolute;
-            top: 100px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            overflow-x: scroll;
-            -webkit-overflow-scrolling: touch;
-            z-index: 10;
-        }
-        /* Inner div to force the scrollbar to be the correct size */
-        .top-scrollbar-track {
-            height: 6px;
-            background: transparent;
-        }
-        .top-scrollbar-thumb {
-            height: 6px;
-            background: #888;
-            border-radius: 10px;
-        }
-
-        /* Hide the default scrollbar on the main container for a cleaner look */
-        .sdlc-stages-container::-webkit-scrollbar {
-            display: none;
-        }
-        .sdlc-stages-container {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
+        /* Removed .top-scrollbar-container and its child styles */
         
         /* Adjustments for smaller screens to ensure horizontal scroll */
         @media (max-width: 1279px) {
@@ -258,7 +231,6 @@
             font-size: 0.75rem; /* Reduced font size */
             color: var(--snyk-text-dark);
         }
-        /* Removed .color-key-title style as the element is removed */
         .color-key-item {
             display: flex;
             align-items: center;
@@ -279,7 +251,6 @@
     
     <!-- Color Key Container -->
     <div class="color-key-container">
-        <!-- Removed the color-key-title div -->
         <div class="color-key-item">
             <div class="color-box" style="background-color: var(--snyk-purple);"></div>
             <span>Legacy TAPP</span>
@@ -292,12 +263,6 @@
             <div class="color-box" style="background-color: var(--snyk-teal);"></div>
             <span>Snyk Studio (AI-First Partnerships)</span>
         </div>
-    </div>
-
-    <!-- Top scrollbar container -->
-    <div id="top-scrollbar-container" class="top-scrollbar-container">
-        <!-- This div's width will be manipulated by JS to match the content width -->
-        <div id="top-scrollbar-track" class="top-scrollbar-track"></div>
     </div>
 
     <!-- Main content container -->
@@ -543,36 +508,10 @@
             }
         }
         
-        // Custom scrollbar synchronization logic
-        function syncScrollbars() {
-            const topScrollbar = document.getElementById('top-scrollbar-container');
-            const mainContent = document.getElementById('sdlc-stages-container');
-            const topScrollbarTrack = document.getElementById('top-scrollbar-track');
-
-            // Set the width of the top track to match the scrollable width of the content
-            topScrollbarTrack.style.width = `${mainContent.scrollWidth}px`;
-
-            // Sync scrolling from the top scrollbar to the main content
-            topScrollbar.onscroll = () => {
-                mainContent.scrollLeft = topScrollbar.scrollLeft;
-            };
-
-            // Sync scrolling from the main content to the top scrollbar
-            mainContent.onscroll = () => {
-                topScrollbar.scrollLeft = mainContent.scrollLeft;
-            };
-
-            // Resize observer to update the scrollbar on window resize
-            const resizeObserver = new ResizeObserver(() => {
-                topScrollbarTrack.style.width = `${mainContent.scrollWidth}px`;
-            });
-            resizeObserver.observe(mainContent);
-        }
-
-        // Call generation and sync scrollbars on window load
+        // Call generation on window load
         window.onload = function() {
             generateSDLCStages();
-            syncScrollbars();
+            // Removed syncScrollbars() as the top scrollbar is no longer needed
         };
 
     </script>
